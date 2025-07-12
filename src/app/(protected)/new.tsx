@@ -22,8 +22,9 @@ export default function NewPost() {
 
         <TextInput
           value={text}
-          placeholder="What is on your mind?"
           onChangeText={setText}
+          placeholderTextColor="gray"
+          placeholder="What is on your mind?"
           className="text-white text-lg"
           multiline
           numberOfLines={4}
