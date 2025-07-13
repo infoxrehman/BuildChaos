@@ -25,7 +25,7 @@ export default function PostReplyInput({ postId }: { postId: string }) {
   });
 
   return (
-    <View className="p-4">
+    <View className="p-4 pt-0">
       <View className="flex-row items-center gap-2 bg-neutral-800 shadow-md p-4 rounded-xl">
         <TextInput
           value={text}
