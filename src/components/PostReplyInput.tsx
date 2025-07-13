@@ -12,12 +12,12 @@ export default function PostReplyInput({ postId }: { postId: string }) {
 
   const queryClient = useQueryClient();
 
-  const { mutate, isPending, error } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: () =>
       createPost({ content: text, user_id: user!.id, parent_id: postId }),
     onSuccess: (data) => {
       setText("");
-      queryClient.invalidateQueries({ queryKey: ["posts", postId, "replies"] });
+      queryClient.invalidateQueries({ queryKey: ["posts", postId] });
     },
     onError: (error) => {
       console.error(error);
