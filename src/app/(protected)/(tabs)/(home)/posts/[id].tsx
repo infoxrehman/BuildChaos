@@ -20,6 +20,12 @@ export default function PostDetailsScreen() {
     staleTime: 1000 * 60 * 5,
   });
 
+  const { data: parent } = useQuery({
+    queryKey: ["posts", post?.parent_id],
+    queryFn: () => getPostById(post?.parent_id || ""),
+    enabled: !!post?.parent_id,
+  });
+
   const { data: replies } = useQuery({
     queryKey: ["posts", id, "replies"],
     queryFn: () => getPostReplies(id),
@@ -40,6 +46,7 @@ export default function PostDetailsScreen() {
         renderItem={({ item }) => <PostListItem post={item} />}
         ListHeaderComponent={
           <>
+            {parent && <PostListItem post={parent} isLastInGroup={false} />}
             <PostDetails post={post} />
             <Text className="text-white text-lg font-bold p-4 border-b border-neutral-800">
               Replies
