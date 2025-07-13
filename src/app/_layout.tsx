@@ -15,6 +15,7 @@ const myTheme = {
     ...DarkTheme.colors,
     primary: "white",
     card: "#101010",
+    background: "#101010",
   },
 };
 
