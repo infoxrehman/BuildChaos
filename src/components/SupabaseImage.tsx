@@ -39,16 +39,6 @@ export default function SupabaseImage({
     staleTime: 1000 * 60 * 60 * 24,
   });
 
-  // if (isLoading)
-  //   return (
-  //     <View
-  //       style={{ width, height }}
-  //       className={`bg-neutral-900 ${className}`}
-  //     />
-  //   );
-
-  // if (error) return <Text className="text-white">Error: {error.message}</Text>;
-
   return (
     <Image
       source={{

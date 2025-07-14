@@ -12,7 +12,7 @@ import { useState } from "react";
 
 import { useAuth } from "@/providers/AuthProvider";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { router } from "expo-router";
 import { createPost } from "@/services/posts";
 
@@ -20,12 +20,13 @@ import { Ionicons } from "@expo/vector-icons";
 
 import * as ImagePicker from "expo-image-picker";
 import { supabase } from "@/lib/supabase";
+import SupabaseImage from "@/components/SupabaseImage";
 
 export default function NewPost() {
   const [text, setText] = useState("");
   const [image, setImage] = useState<ImagePicker.ImagePickerAsset | null>(null);
 
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
 
   const queryClient = useQueryClient();
 
@@ -90,32 +91,50 @@ export default function NewPost() {
         keyboardVerticalOffset={Platform.OS === "ios" ? 140 : 0}
         className="flex-1"
       >
-        <Text className="text-white text-lg font-bold">username</Text>
-
-        <TextInput
-          value={text}
-          onChangeText={setText}
-          placeholderTextColor="gray"
-          placeholder="What is on your mind?"
-          className="text-white text-lg"
-          multiline
-          numberOfLines={4}
-        />
-
-        {image && (
-          <Image
-            source={{ uri: image.uri }}
-            className="w-1/2 rounded-lg my-4"
-            style={{ aspectRatio: image.width / image.height }}
+        <View className="flex-row gap-4">
+          <SupabaseImage
+            bucket="avatars"
+            path={profile?.avatar_url ?? ""}
+            className="w-12 h-12 rounded-full"
+            transform={{ width: 50, height: 50 }}
           />
-        )}
 
-        {error && (
-          <Text className="text-red-500 text-sm mt-4">{error.message}</Text>
-        )}
+          <View>
+            <Text className="text-white text-lg font-bold">
+              @{profile?.username}
+            </Text>
 
-        <View className="flex-row items-center gap-2 mt-4">
-          <Ionicons onPress={pickImage} name="images" size={20} color="gray" />
+            <TextInput
+              value={text}
+              onChangeText={setText}
+              placeholderTextColor="gray"
+              placeholder="What is on your mind?"
+              className="text-white text-lg"
+              multiline
+              numberOfLines={4}
+            />
+
+            {image && (
+              <Image
+                source={{ uri: image.uri }}
+                className="w-1/2 rounded-lg my-4"
+                style={{ aspectRatio: image.width / image.height }}
+              />
+            )}
+
+            {error && (
+              <Text className="text-red-500 text-sm mt-4">{error.message}</Text>
+            )}
+
+            <View className="flex-row items-center gap-2 mt-4">
+              <Ionicons
+                onPress={pickImage}
+                name="images"
+                size={20}
+                color="gray"
+              />
+            </View>
+          </View>
         </View>
 
         <View className="mt-auto">
