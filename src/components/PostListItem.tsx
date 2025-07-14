@@ -35,6 +35,7 @@ export default function PostListItem({
             bucket="avatars"
             path={post.user.avatar_url || ""}
             className="w-12 h-12 rounded-full"
+            transform={{ width: 50, height: 50 }}
           />
 
           {!isLastInGroup && (
@@ -57,14 +58,13 @@ export default function PostListItem({
           {post.images && (
             <View className="flex-row gap-2 mt-2">
               {post.images.map((image) => (
-                <Image
+                <SupabaseImage
                   key={image}
-                  source={{
-                    uri: supabase.storage.from("media").getPublicUrl(image).data
-                      .publicUrl,
-                  }}
+                  bucket="media"
+                  path={image}
                   className="w-full aspect-square rounded-lg"
-                ></Image>
+                  transform={{ width: 500, height: 500 }}
+                />
               ))}
             </View>
           )}

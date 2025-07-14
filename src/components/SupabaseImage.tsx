@@ -1,10 +1,16 @@
 import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
-import { ActivityIndicator, Image, Text } from "react-native";
+import { Image, Text } from "react-native";
 
-const downloadImage = async (bucket: string, path: string): Promise<string> => {
+const downloadImage = async (
+  bucket: string,
+  path: string,
+  transform: { width: number; height: number }
+): Promise<string> => {
   return new Promise(async (resolve, reject) => {
-    const { data, error } = await supabase.storage.from(bucket).download(path);
+    const { data, error } = await supabase.storage
+      .from(bucket)
+      .download(path, { transform });
     if (error) {
       return reject(error);
     }
@@ -20,25 +26,35 @@ export default function SupabaseImage({
   bucket,
   path,
   className,
+  transform,
 }: {
   bucket: string;
   path: string;
   className: string;
+  transform: { width: number; height: number } | undefined;
 }) {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["supabaseImage", path],
-    queryFn: () => downloadImage(bucket, path),
+    queryKey: ["supabaseImage", { bucket, path, transform }],
+    queryFn: () => downloadImage(bucket, path, transform),
+    staleTime: 1000 * 60 * 60 * 24,
   });
 
-  if (isLoading) return <ActivityIndicator />;
-  if (error) return <Text className="text-white">Error: {error.message}</Text>;
+  // if (isLoading)
+  //   return (
+  //     <View
+  //       style={{ width, height }}
+  //       className={`bg-neutral-900 ${className}`}
+  //     />
+  //   );
+
+  // if (error) return <Text className="text-white">Error: {error.message}</Text>;
 
   return (
     <Image
       source={{
-        uri: data,
+        uri: data || undefined,
       }}
-      className={className}
+      className={`${className} bg-neutral-900`}
     />
   );
 }
