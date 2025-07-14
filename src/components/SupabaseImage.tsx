@@ -1,11 +1,11 @@
 import { supabase } from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
-import { Image, Text } from "react-native";
+import { ActivityIndicator, Image, Text, View } from "react-native";
 
 const downloadImage = async (
   bucket: string,
   path: string,
-  transform: { width: number; height: number }
+  transform: { width: number; height: number } | undefined
 ): Promise<string> => {
   return new Promise(async (resolve, reject) => {
     const { data, error } = await supabase.storage
@@ -38,6 +38,8 @@ export default function SupabaseImage({
     queryFn: () => downloadImage(bucket, path, transform),
     staleTime: 1000 * 60 * 60 * 24,
   });
+
+  // if (error) return <Text className='text-white'>Error: {error.message}</Text>;
 
   return (
     <Image

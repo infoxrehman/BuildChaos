@@ -1,6 +1,5 @@
 import { router, Tabs } from "expo-router";
 import { Feather } from "@expo/vector-icons";
-import { View } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -20,11 +19,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="search"
+        name="explore"
         options={{
-          title: "Search",
+          title: "Explore",
           tabBarIcon: ({ size, color }) => (
-            <Feather name="search" size={size} color={color} />
+            <Feather name="radio" size={size} color={color} />
           ),
         }}
       />

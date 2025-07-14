@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getPostsByUserId } from "@/services/posts";
 import { FlatList } from "react-native";
 import PostListItem from "@/components/PostListItem";
-import { getProfileById } from "@/services/profiles";
 import ProfileHeader from "@/components/ProfileHeader";
 
 export default function Profile() {

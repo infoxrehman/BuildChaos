@@ -1,13 +1,26 @@
-import { ActivityIndicator, FlatList, Text } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  RefreshControl,
+} from "react-native";
 import PostListItem from "@/components/PostListItem";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "@/services/posts";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
 export default function Home() {
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, refetch, isRefetching } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
   });
+
+  useFocusEffect(
+    useCallback(() => {
+      refetch();
+    }, [refetch])
+  );
 
   if (isLoading) {
     return <ActivityIndicator />;
@@ -21,6 +34,9 @@ export default function Home() {
     <FlatList
       data={data}
       renderItem={({ item }) => <PostListItem post={item} />}
+      refreshControl={
+        <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+      }
     />
   );
 }

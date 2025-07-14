@@ -94,14 +94,12 @@ export default function NewPost() {
         <View className="flex-row gap-4">
           <SupabaseImage
             bucket="avatars"
-            path={profile?.avatar_url ?? ""}
+            path={profile.avatar_url}
             className="w-12 h-12 rounded-full"
-            transform={{ width: 50, height: 50 }}
           />
-
           <View>
             <Text className="text-white text-lg font-bold">
-              @{profile?.username}
+              ~{profile?.username}
             </Text>
 
             <TextInput

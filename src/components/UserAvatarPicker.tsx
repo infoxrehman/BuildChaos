@@ -65,6 +65,11 @@ export default function UserAvatarPicker({
         path={currentAvatar}
         className="w-24 h-24 rounded-full self-center"
       />
+
+      {/* <Image
+        source={{ uri: currentAvatar }}
+        className="w-12 h-12 rounded-full"
+      /> */}
     </Pressable>
   );
 }
