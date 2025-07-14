@@ -4,10 +4,12 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getProfileById, updateProfile } from "@/services/profiles";
 import { useAuth } from "@/providers/AuthProvider";
 import { router } from "expo-router";
+import UserAvatarPicker from "@/components/UserAvatarPicker";
 
 export default function ProfileEditScreen() {
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
 
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -26,6 +28,7 @@ export default function ProfileEditScreen() {
       updateProfile(user!.id, {
         full_name: fullName,
         bio,
+        avatar_url: avatarUrl,
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["profile", user?.id] });
@@ -40,8 +43,10 @@ export default function ProfileEditScreen() {
 
   return (
     <View className="flex-1 p-4 gap-4">
-      <Text className="text-white text-2xl font-bold">Edit Profile</Text>
-
+      <UserAvatarPicker
+        currentAvatar={profile?.avatar_url ?? ""}
+        onUpload={setAvatarUrl}
+      />
       <TextInput
         value={fullName}
         onChangeText={setFullName}

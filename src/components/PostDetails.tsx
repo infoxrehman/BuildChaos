@@ -5,6 +5,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { Tables } from "@/types/database.types";
 import { Link } from "expo-router";
 import { supabase } from "@/lib/supabase";
+import SupabaseImage from "./SupabaseImage";
 
 dayjs.extend(relativeTime);
 
@@ -20,8 +21,9 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
     <Link href={`/posts/${post.id}`} asChild>
       <Pressable className=" p-4 border-b border-gray-800/70 gap-4">
         <View className="flex-1 flex-row items-center gap-3">
-          <Image
-            source={{ uri: post.user.avatar_url ?? undefined }}
+          <SupabaseImage
+            bucket="avatars"
+            path={post.user.avatar_url || ""}
             className="w-12 h-12 rounded-full"
           />
           <Text className="text-white font-bold mr-2">
@@ -37,14 +39,12 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
         {post.images && (
           <View className="flex-row gap-2 mt-2">
             {post.images.map((image) => (
-              <Image
+              <SupabaseImage
                 key={image}
-                source={{
-                  uri: supabase.storage.from("media").getPublicUrl(image).data
-                    .publicUrl,
-                }}
+                bucket="media"
+                path={image}
                 className="w-full aspect-square rounded-lg"
-              ></Image>
+              />
             ))}
           </View>
         )}
