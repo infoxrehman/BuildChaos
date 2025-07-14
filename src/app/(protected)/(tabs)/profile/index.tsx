@@ -38,12 +38,12 @@ export default function Profile() {
         )}
       />
 
-      <Text
+      {/* <Text
         onPress={() => supabase.auth.signOut()}
         className="text-2xl font-bold text-white"
       >
         Sign out
-      </Text>
+      </Text> */}
     </View>
   );
 }
