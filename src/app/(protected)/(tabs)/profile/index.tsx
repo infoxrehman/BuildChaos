@@ -1,4 +1,3 @@
-import { supabase } from "@/lib/supabase";
 import { ActivityIndicator, Text, View } from "react-native";
 import { useAuth } from "@/providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";

@@ -1,8 +1,8 @@
 import { ScrollView, StyleSheet, SafeAreaView, FlatList } from "react-native";
-import ExploreHeader from "../../../components/ExploreHeader";
-import CommunitiesSection from "../../../components/CommunitiesSection";
-import TechEventsSection from "../../../components/TechEventsSection";
-import HackathonsSection from "../../../components/HackathonsSection";
+import ExploreHeader from "../../../../components/ExploreHeader";
+import CommunitiesSection from "../../../../components/CommunitiesSection";
+import TechEventsSection from "../../../../components/TechEventsSection";
+import HackathonsSection from "../../../../components/HackathonsSection";
 
 import EventListItem from "@/components/EventListItem";
 

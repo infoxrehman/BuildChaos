@@ -19,7 +19,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="event"
         options={{
           title: "Explore",
           tabBarIcon: ({ size, color }) => (
