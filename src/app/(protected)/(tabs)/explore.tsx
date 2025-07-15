@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, SafeAreaView } from "react-native";
+import { ScrollView, StyleSheet, SafeAreaView, FlatList } from "react-native";
 import ExploreHeader from "../../../components/ExploreHeader";
 import CommunitiesSection from "../../../components/CommunitiesSection";
 import TechEventsSection from "../../../components/TechEventsSection";
@@ -21,9 +21,11 @@ export default function Explore() {
     // </SafeAreaView>
 
     <>
-      <EventListItem event={events[0]} />
-      <EventListItem event={events[1]} />
-      <EventListItem event={events[2]} />
+      <FlatList
+        className="bg-white"
+        data={events}
+        renderItem={({ item }) => <EventListItem event={item} />}
+      />
     </>
   );
 }
