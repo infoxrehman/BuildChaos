@@ -19,3 +19,18 @@
     
 //     replies: Post[];
 // }
+
+export type SectionItem = {
+  id: string;
+  title: string;
+  description?: string;
+  image?: string;
+  date?: string;
+  location?: string;
+};
+
+export type SectionProps = {
+  title: string;
+  items: SectionItem[];
+  onPressItem?: (item: SectionItem) => void;
+};
