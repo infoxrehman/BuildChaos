@@ -22,7 +22,6 @@ export default function Explore() {
 
     <>
       <FlatList
-        className="bg-white"
         data={events}
         renderItem={({ item }) => <EventListItem event={item} />}
       />
