@@ -1,5 +1,5 @@
 import { Stack, useLocalSearchParams } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 
 import events from "assets/events.json";
 import dayjs from "dayjs";
@@ -33,6 +33,13 @@ export default function EventPage() {
       <Text className="text-lg text-black" numberOfLines={2}>
         {event.description}
       </Text>
+
+      <View className="absolute bottom-0 left-0 right-0 flex-row border-t-2 border-gray-300 p-5 pb-10 justify-between items-center">
+        <Text className="text-xl font-semibold">Free</Text>
+        <Pressable className="bg-red-400 rounded-xl p-5 px-8">
+          <Text className="text-lg font-bold text-white"> Join and RSVP</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
