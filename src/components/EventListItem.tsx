@@ -21,7 +21,7 @@ export default function EventListItem({ event }) {
           </View>
           <Image
             source={{
-              uri: event.image,
+              uri: event.image_uri,
             }}
             className="w-2/5 aspect-video rounded-lg"
           />

@@ -6,10 +6,22 @@ import HackathonsSection from "../../../../components/HackathonsSection";
 
 import EventListItem from "@/components/EventListItem";
 
-import events from "assets/events.json";
-const event = events[0];
+import { Stack } from "expo-router";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function Explore() {
+  const [events, setEvetns] = useState([]);
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    const { data, error } = await supabase.from("events").select("*");
+    setEvetns(data);
+  };
+
   return (
     // <SafeAreaView>
     //   <ScrollView>
@@ -21,6 +33,7 @@ export default function Explore() {
     // </SafeAreaView>
 
     <>
+      <Stack.Screen options={{ title: "Events" }} />
       <FlatList
         data={events}
         renderItem={({ item }) => <EventListItem event={item} />}
