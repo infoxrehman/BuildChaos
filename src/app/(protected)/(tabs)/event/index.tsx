@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export default function Explore() {
-  const [events, setEvetns] = useState([]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     fetchEvents();
@@ -19,7 +19,7 @@ export default function Explore() {
 
   const fetchEvents = async () => {
     const { data, error } = await supabase.from("events").select("*");
-    setEvetns(data);
+    setEvents(data);
   };
 
   return (
