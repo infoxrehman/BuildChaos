@@ -1,4 +1,4 @@
-import { Stack, useLocalSearchParams } from "expo-router";
+import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { ActivityIndicator, Image, Pressable, Text, View } from "react-native";
 
 import dayjs from "dayjs";
@@ -28,18 +28,16 @@ export default function EventPage() {
       .single();
     setEvent(data);
     setLoading(false);
+
+    const { data: attendanceData } = await supabase
+      .from("attendance")
+      .select("*")
+      .eq("user_id", user.id)
+      .eq("event_id", id)
+      .single();
+
+    setAttendance(attendanceData);
   };
-
-  const { data: attendanceData } = await supabase
-    .from("attendance")
-    .select("*")
-    .eq("user_id", user.id)
-    .eq("event_id", id)
-    .single();
-
-  setAttendance(attendanceData);
-
-  setLoading(false);
 
   const joinEvent = async () => {
     const { data, error } = await supabase
@@ -79,6 +77,14 @@ export default function EventPage() {
       <Text className="text-lg text-black" numberOfLines={2}>
         {event.description}
       </Text>
+
+      <Link
+        href={`/event/${event.id}/attendance`}
+        className="text-lg"
+        numberOfLines={2}
+      >
+        View attendes
+      </Link>
 
       <View className="absolute bottom-0 left-0 right-0 flex-row border-t-2 border-gray-300 p-5 justify-between items-center">
         <Text className="text-xl font-semibold">Free</Text>

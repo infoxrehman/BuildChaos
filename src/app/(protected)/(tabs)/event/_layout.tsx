@@ -1,12 +1,11 @@
 import { Stack } from "expo-router";
 
-export default function ProfileLayout() {
+export default function EventLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
-        options={{ title: "Events", headerShown: false }}
-      />
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" options={{ title: "Events" }} />
+      <Stack.Screen name="attendance" options={{ title: "Attendance" }} />
+      <Stack.Screen name="create" options={{ title: "Create" }} />
     </Stack>
   );
 }

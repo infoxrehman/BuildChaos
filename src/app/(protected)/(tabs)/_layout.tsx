@@ -43,11 +43,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="notifications"
+        name="dex"
         options={{
-          title: "Notifications",
+          title: "Dexs",
           tabBarIcon: ({ size, color }) => (
-            <Feather name="bell" size={size} color={color} />
+            <Feather name="zap" size={size} color={color} />
           ),
         }}
       />
