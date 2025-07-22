@@ -49,10 +49,12 @@ export default function Explore() {
       <SafeAreaView>
         <Pressable
           onPress={() => {}}
-          className="bg-red-400 rounded-xl p-5 px-8"
+          className="bg-red-400 rounded-xl p-5 px-8 m-4"
         >
           <Link href="/(protected)/(tabs)/event/create" asChild>
-            <Text className="text-lg font-bold text-white">Create event</Text>
+            <Text className="text-lg font-bold text-white text-center">
+              Create your event now
+            </Text>
           </Link>
         </Pressable>
       </SafeAreaView>

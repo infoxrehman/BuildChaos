@@ -6,13 +6,13 @@ export default function HomeLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Build Chaos",
         }}
       />
       <Stack.Screen
         name="posts/[id]"
         options={{
-          title: "Threads",
+          title: "Build Chaos",
           headerBackButtonDisplayMode: "generic",
         }}
       />

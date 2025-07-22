@@ -27,8 +27,8 @@ export default function EventListItem({ event }) {
         <View className="flex-row">
           <View className="flex-1 gap-2">
             <Text className="text-lg font-semibold uppercase text-white">
-              {dayjs(event.datetime).format("ddd, D MMM")} .{" "}
-              {dayjs(event.datetime).format("h:mm A")}
+              {dayjs(event.date).format("ddd, D MMM")} .{" "}
+              {dayjs(event.date).format("h:mm A")}
             </Text>
             <Text className="text-white font-bold text-xl" numberOfLines={2}>
               {event.title}

@@ -52,7 +52,6 @@ export default function PostListItem({
             </Text>
           </View>
 
-          {/* Post Content */}
           <Text className="text-white mt-2 mb-3">{post.content}</Text>
 
           {post.images && (
@@ -70,28 +69,34 @@ export default function PostListItem({
             </View>
           )}
 
-          {/* Interaction Buttons */}
           <View className="flex-row gap-4 mt-2">
-            <Pressable className="flex-row items-center">
+            {/* <Pressable className="flex-row items-center">
               <Ionicons name="heart-outline" size={20} color="#d1d5db" />
               <Text className="text-gray-300 ml-2">0</Text>
-            </Pressable>
+            </Pressable> */}
 
             <Pressable className="flex-row items-center">
-              <Ionicons name="chatbubble-outline" size={20} color="#d1d5db" />
+              <Ionicons
+                name="git-pull-request-outline"
+                size={20}
+                color="#d1d5db"
+              />
+              {/* <Feather name="zap" size={20} color="#d1d5db" /> */}
+
               <Text className="text-gray-300 ml-2">
-                {post?.replies?.[0].count || 0}
+                {post?.replies?.[0].count || 0}{" "}
+                {post?.replies?.[0].count <= 1 ? "Commit" : "Commits"}
               </Text>
             </Pressable>
 
-            <Pressable className="flex-row items-center">
+            {/* <Pressable className="flex-row items-center">
               <Ionicons name="repeat-outline" size={20} color="#d1d5db" />
               <Text className="text-gray-300 ml-2">0</Text>
-            </Pressable>
+            </Pressable> */}
 
-            <Pressable>
+            {/* <Pressable>
               <Ionicons name="paper-plane-outline" size={20} color="#d1d5db" />
-            </Pressable>
+            </Pressable> */}
           </View>
         </View>
       </Pressable>

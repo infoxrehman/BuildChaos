@@ -20,7 +20,6 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
   return (
     <Link href={`/posts/${post.id}`} asChild>
       <Pressable className="p-4 border-b border-gray-800/70 gap-4">
-        {/* Author info */}
         <View className="flex-1 flex-row items-center gap-3">
           <SupabaseImage
             bucket="avatars"
@@ -36,7 +35,6 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
           </Text>
         </View>
 
-        {/* Post Content */}
         <Text className="text-white">{post.content}</Text>
 
         {post.images && (
@@ -54,28 +52,32 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
           </View>
         )}
 
-        {/* Interaction Buttons */}
         <View className="flex-row gap-4">
-          <Pressable className="flex-row items-center">
+          {/* <Pressable className="flex-row items-center">
             <Ionicons name="heart-outline" size={20} color="#d1d5db" />
             <Text className="text-gray-300 ml-2">0</Text>
-          </Pressable>
+          </Pressable> */}
 
           <Pressable className="flex-row items-center">
-            <Ionicons name="chatbubble-outline" size={20} color="#d1d5db" />
+            <Ionicons
+              name="git-pull-request-outline"
+              size={20}
+              color="#d1d5db"
+            />
             <Text className="text-gray-300 ml-2">
-              {post?.replies?.[0].count || 0}
+              {post?.replies?.[0].count || 0}{" "}
+              {post?.replies?.[0].count <= 1 ? "Commit" : "Commits"}
             </Text>
           </Pressable>
 
-          <Pressable className="flex-row items-center">
+          {/* <Pressable className="flex-row items-center">
             <Ionicons name="repeat-outline" size={20} color="#d1d5db" />
             <Text className="text-gray-300 ml-2">0</Text>
           </Pressable>
 
           <Pressable>
             <Ionicons name="paper-plane-outline" size={20} color="#d1d5db" />
-          </Pressable>
+          </Pressable> */}
         </View>
       </Pressable>
     </Link>

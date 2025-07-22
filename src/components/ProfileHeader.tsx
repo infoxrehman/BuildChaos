@@ -4,6 +4,7 @@ import { View, Text, ActivityIndicator, Image, Pressable } from "react-native";
 import { useAuth } from "@/providers/AuthProvider";
 import { Link } from "expo-router";
 import SupabaseImage from "./SupabaseImage";
+import { supabase } from "@/lib/supabase";
 
 export default function ProfileHeader() {
   const { user } = useAuth();
@@ -51,6 +52,12 @@ export default function ProfileHeader() {
           <Text className="text-center text-neutral-200">Share Profile</Text>
         </Pressable>
       </View>
+      <Pressable
+        className=" items-center rounded-lg bg-red-400 p-3 px-8"
+        onPress={() => supabase.auth.signOut()}
+      >
+        <Text className="text-lg font-bold text-white">Log off</Text>
+      </Pressable>
     </View>
   );
 }

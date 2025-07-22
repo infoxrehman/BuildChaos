@@ -16,11 +16,11 @@ export default function Home() {
     queryFn: fetchPosts,
   });
 
-  useFocusEffect(
-    useCallback(() => {
-      refetch();
-    }, [refetch])
-  );
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     refetch();
+  //   }, [refetch])
+  // );
 
   if (isLoading) {
     return <ActivityIndicator />;

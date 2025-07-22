@@ -1,10 +1,11 @@
-import { Link, Stack, useLocalSearchParams } from "expo-router";
+import { Link, router, Stack, useLocalSearchParams } from "expo-router";
 import { ActivityIndicator, Image, Pressable, Text, View } from "react-native";
 
 import dayjs from "dayjs";
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/providers/AuthProvider";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function EventPage() {
   const { id } = useLocalSearchParams();
@@ -59,6 +60,14 @@ export default function EventPage() {
 
   return (
     <View className="flex-1 gap-3 mt-2 bg-white rounded-t-3xl p-3">
+      <Pressable onPress={() => router.back()} style={{ padding: 8 }}>
+        <Ionicons
+          className="mt-4"
+          name="chevron-back-outline"
+          size={28}
+          color="black"
+        />
+      </Pressable>
       <Stack.Screen
         options={{ title: "Event", headerBackTitleVisible: false }}
       />
@@ -70,8 +79,8 @@ export default function EventPage() {
         {event.title}
       </Text>
       <Text className="text-lg font-semibold uppercase text-black">
-        {dayjs(event.datetime).format("ddd, D MMM")} .{" "}
-        {dayjs(event.datetime).format("h:mm A")}
+        {dayjs(event.date).format("ddd, D MMM")} .{" "}
+        {dayjs(event.date).format("h:mm A")}
       </Text>
 
       <Text className="text-lg text-black" numberOfLines={2}>

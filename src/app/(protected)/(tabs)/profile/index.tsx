@@ -29,9 +29,7 @@ export default function Profile() {
         ListHeaderComponent={() => (
           <>
             <ProfileHeader />
-            <Text className="text-white text-lg font-bold mt-4 m-2">
-              Threads
-            </Text>
+            <Text className="text-white text-lg font-bold mt-4 m-2">Posts</Text>
           </>
         )}
       />
