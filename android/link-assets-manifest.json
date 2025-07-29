@@ -1,0 +1,45 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/arcade_gamer.TTF",
+      "sha1": "11efe77484a1accd6c0254c8f82a0f0c885487fa"
+    },
+    {
+      "path": "assets/fonts/crackman.otf",
+      "sha1": "48530c330935906ea7cd1ccd34edb3bd32d9a7d8"
+    },
+    {
+      "path": "assets/fonts/lato_bold.ttf",
+      "sha1": "6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683"
+    },
+    {
+      "path": "assets/fonts/lato_medium.ttf",
+      "sha1": "c78e94b7cc0b782eef4f9f2be371c3cf9c3f6eaf"
+    },
+    {
+      "path": "assets/fonts/lato_regular.ttf",
+      "sha1": "f59f9e4f3cbee981a5e6f58a279f9b9613f22599"
+    },
+    {
+      "path": "assets/fonts/lato_semibold.ttf",
+      "sha1": "96569e2cfcc3a298bb1aea21103d0d1e3c7e2ed4"
+    },
+    {
+      "path": "assets/fonts/neue_machina_ultrabold.otf",
+      "sha1": "c155e76c72de772a8b166edc9d814bf734e38054"
+    },
+    {
+      "path": "assets/fonts/product_sans_bold.ttf",
+      "sha1": "e07e7ff0ec27cb309c74e5a8df2fb9ad16288f72"
+    },
+    {
+      "path": "assets/fonts/product_sans_regular.ttf",
+      "sha1": "49bdf6c2dc3ca0c772da5bc3d10ff5da23badee3"
+    },
+    {
+      "path": "assets/fonts/source_code_pro_bold.otf",
+      "sha1": "71dd834aa3b4b49b1af71b9e0b25f4e630d70f1c"
+    }
+  ]
+}

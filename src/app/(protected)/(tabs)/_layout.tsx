@@ -19,7 +19,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="event"
+        name="(explore)"
         options={{
           title: "Explore",
           tabBarIcon: ({ size, color }) => (
@@ -63,4 +63,7 @@ export default function TabLayout() {
       />
     </Tabs>
   );
+}
+function useFonts(arg0: { Arcade: any }): [any] {
+  throw new Error("Function not implemented.");
 }
