@@ -8,7 +8,7 @@ import PostListItem from "@/components/PostListItem";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "@/services/posts";
 
-export default function Home() {
+export default function Community() {
   const { data, isLoading, error, refetch, isRefetching } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,

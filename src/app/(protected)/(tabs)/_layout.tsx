@@ -43,7 +43,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="dex"
+        name="(dexs)"
         options={{
           title: "Dexs",
           tabBarIcon: ({ size, color }) => (

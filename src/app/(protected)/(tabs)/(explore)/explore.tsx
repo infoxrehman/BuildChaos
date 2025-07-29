@@ -22,7 +22,7 @@ export default function Explore() {
   return (
     <ScrollView>
       <View>
-        <Link href="" asChild>
+        <Link href="/src/app/(protected)/(tabs)/(explore)/community" asChild>
           <View
             className="p-10 bg-[#A5FE04] m-4 rounded-xl border-4 border-white"
             style={styles.cardContainer}

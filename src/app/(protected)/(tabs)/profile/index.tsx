@@ -1,4 +1,4 @@
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator, Text, View, RefreshControl } from "react-native";
 import { useAuth } from "@/providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { getPostsByUserId } from "@/services/posts";
@@ -13,6 +13,8 @@ export default function Profile() {
     data: posts,
     isLoading,
     error,
+    refetch,
+    isRefetching,
   } = useQuery({
     queryKey: ["posts", { user_id: user?.id }],
     queryFn: () => getPostsByUserId(user!.id),
@@ -26,6 +28,9 @@ export default function Profile() {
       <FlatList
         data={posts}
         renderItem={({ item }) => <PostListItem post={item} />}
+        refreshControl={
+          <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+        }
         ListHeaderComponent={() => (
           <>
             <ProfileHeader />
