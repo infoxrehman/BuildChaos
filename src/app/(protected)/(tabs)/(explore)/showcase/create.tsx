@@ -11,6 +11,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import { supabase } from "@/lib/supabase";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 export default function CreateShowcase() {
   const [projectImage, setProjectImage] = useState<string | null>(null);
@@ -89,14 +90,12 @@ export default function CreateShowcase() {
         .from("showcase")
         .insert([
           {
-            id: "23",
             title,
             description,
             creator_name: creatorName,
             project_url: projectUrl,
             project_image: projectImagePath,
             banners: bannerPaths,
-            user_id: user?.id,
             created_at: new Date().toISOString(),
           },
         ])
@@ -120,17 +119,14 @@ export default function CreateShowcase() {
   };
 
   return (
-    <ScrollView className="p-4 bg-gray-900 flex-1">
-      <Text className="text-white text-2xl font-bold mb-6">
-        Create Showcase
-      </Text>
-
-      {/* Project Image */}
+    <ScrollView className="p-4 flex-1">
+      <Pressable onPress={() => router.back()} className="p-2">
+        <Ionicons name="chevron-back-outline" size={28} color="white" />
+      </Pressable>
       <View className="mb-4">
-        <Text className="text-white mb-2">Project Image</Text>
         <Pressable
           onPress={() => pickImage(false)}
-          className="bg-gray-700 p-4 rounded-lg items-center justify-center h-40"
+          className="p-4 mt-4 rounded-lg items-center justify-center h-40 border-2 border-dashed border-gray-400"
         >
           {projectImage ? (
             <Image
@@ -147,13 +143,12 @@ export default function CreateShowcase() {
         </Pressable>
       </View>
 
-      {/* Project Details */}
       <TextInput
         placeholder="Project Title"
         placeholderTextColor="#999"
         value={title}
         onChangeText={setTitle}
-        className="bg-gray-800 text-white p-3 rounded-lg mb-4"
+        className="bg-neutral-800 border border-neutral-70 placeholder:text-gray-500 focus:border-blue-500 text-white p-3 rounded-lg mb-4"
       />
 
       <TextInput
@@ -163,7 +158,7 @@ export default function CreateShowcase() {
         onChangeText={setDescription}
         multiline
         numberOfLines={4}
-        className="bg-gray-800 text-white p-3 rounded-lg mb-4 h-32"
+        className="bg-neutral-800 border border-neutral-700 placeholder:text-gray-500 focus:border-blue-500 text-white p-3 rounded-lg mb-4 h-32"
       />
 
       <TextInput
@@ -171,7 +166,7 @@ export default function CreateShowcase() {
         placeholderTextColor="#999"
         value={creatorName}
         onChangeText={setCreatorName}
-        className="bg-gray-800 text-white p-3 rounded-lg mb-4"
+        className="bg-neutral-800 border border-neutral-70 placeholder:text-gray-500 focus:border-blue-500 text-white p-3 rounded-lg mb-4"
       />
 
       <TextInput
@@ -179,10 +174,9 @@ export default function CreateShowcase() {
         placeholderTextColor="#999"
         value={projectUrl}
         onChangeText={setProjectUrl}
-        className="bg-gray-800 text-white p-3 rounded-lg mb-4"
+        className="bg-neutral-800 border border-neutral-700 placeholder:text-gray-500 focus:border-blue-500 text-white p-3 rounded-lg mb-4"
       />
 
-      {/* Banners */}
       <View className="mb-6">
         <Text className="text-white mb-2">Banners (up to 5)</Text>
         <View className="flex-row flex-wrap">
@@ -203,7 +197,7 @@ export default function CreateShowcase() {
           {banners.length < 5 && (
             <Pressable
               onPress={() => pickImage(true)}
-              className="bg-gray-700 w-20 h-20 rounded-lg items-center justify-center"
+              className="bg-neutral-800 w-20 h-20 rounded-lg items-center justify-center"
             >
               <Ionicons name="add" size={24} color="white" />
             </Pressable>
@@ -211,14 +205,13 @@ export default function CreateShowcase() {
         </View>
       </View>
 
-      {/* Submit Button */}
       <Pressable
         onPress={handleSubmit}
         disabled={isLoading}
         className="bg-red-500 p-4 rounded-lg items-center justify-center"
       >
         <Text className="text-white font-bold text-lg">
-          {isLoading ? "Creating..." : "Create Showcase"}
+          {isLoading ? "Creating..." : "Submit project"}
         </Text>
       </Pressable>
     </ScrollView>
