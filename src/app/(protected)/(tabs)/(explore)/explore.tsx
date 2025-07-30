@@ -1,12 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import { Bitcount_400Regular, useFonts } from "@expo-google-fonts/bitcount";
-import { Link } from "expo-router";
+import { router } from "expo-router";
 
 export default function Explore() {
   const [fontsLoaded] = useFonts({
     Bitcount: Bitcount_400Regular,
   });
+
+  const handlePressCommunity = () => {
+    router.push("/community");
+  };
+  const handlePressShowcase = () => {
+    router.push("/showcase/showcase");
+  };
 
   const imageUris = {
     community:
@@ -22,7 +36,7 @@ export default function Explore() {
   return (
     <ScrollView>
       <View>
-        <Link href="/src/app/(protected)/(tabs)/(explore)/community" asChild>
+        <TouchableOpacity onPress={handlePressCommunity}>
           <View
             className="p-10 bg-[#A5FE04] m-4 rounded-xl border-4 border-white"
             style={styles.cardContainer}
@@ -32,17 +46,21 @@ export default function Explore() {
             </View>
             <Image source={{ uri: imageUris.community }} style={styles.image} />
           </View>
-        </Link>
+        </TouchableOpacity>
 
-        <View
-          className="p-10 bg-[#855BCB] m-4 rounded-xl border-4 border-white"
-          style={styles.cardContainer}
-        >
-          <View style={styles.textContainer}>
-            <Text style={[styles.menuText, { color: "white" }]}>SHOWCASE</Text>
+        <TouchableOpacity onPress={handlePressShowcase}>
+          <View
+            className="p-10 bg-[#855BCB] m-4 rounded-xl border-4 border-white"
+            style={styles.cardContainer}
+          >
+            <View style={styles.textContainer}>
+              <Text style={[styles.menuText, { color: "white" }]}>
+                SHOWCASE
+              </Text>
+            </View>
+            <Image source={{ uri: imageUris.showcase }} style={styles.image} />
           </View>
-          <Image source={{ uri: imageUris.showcase }} style={styles.image} />
-        </View>
+        </TouchableOpacity>
 
         <View
           className="p-10 bg-[#AAB3FE] m-4 rounded-xl border-4 border-white"

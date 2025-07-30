@@ -7,9 +7,6 @@ export default function EventLayout() {
       <Stack.Screen name="community" options={{ title: "Edit Profile" }} />
       <Stack.Screen name="showcase" options={{ title: "Edit Profile" }} />
       <Stack.Screen name="hackhathons" options={{ title: "Edit Profile" }} />
-
-      {/* <Stack.Screen name="attendance" options={{ title: "Attendance" }} />
-      <Stack.Screen name="create" options={{ title: "Create" }} /> */}
     </Stack>
   );
 }

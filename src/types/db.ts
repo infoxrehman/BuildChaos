@@ -5,3 +5,4 @@ export type NearbyEvent =
   Database["public"]["Functions"]["nearby_events"]["Returns"];
 
 export type Attendance = Database["public"]["Tables"]["attendance"]["Row"];
+

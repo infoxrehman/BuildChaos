@@ -30,7 +30,7 @@ export default function PostReplyInput({ postId }: { postId: string }) {
         <TextInput
           value={text}
           onChangeText={setText}
-          placeholder="Add to thread..."
+          placeholder="Add to chaos..."
           className="flex-1 text-white"
           multiline
         />

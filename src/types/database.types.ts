@@ -200,6 +200,53 @@ export type Database = {
           },
         ]
       }
+       showcase: {
+        Row: {
+          id: string;
+          title: string;
+          description: string;
+          creator_name: string | null;
+          project_url: string | null;
+          project_image: string | null;
+          banners: string[] | null;
+          created_at: string;
+          updated_at: string | null;
+          user_id: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description: string;
+          creator_name?: string | null;
+          project_url?: string | null;
+          project_image?: string | null;
+          banners?: string[] | null;
+          created_at?: string;
+          updated_at?: string | null;
+          user_id: string;
+        };
+        Update: {
+          id?: never;
+          title?: string;
+          description?: string;
+          creator_name?: string | null;
+          project_url?: string | null;
+          project_image?: string | null;
+          banners?: string[] | null;
+          created_at?: never;
+          updated_at?: string | null;
+          user_id?: never;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "showcase_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
+      }
+      
     }
     Views: {
       [_ in never]: never

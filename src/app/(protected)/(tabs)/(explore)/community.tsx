@@ -1,40 +1,9 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  Text,
-  RefreshControl,
-} from "react-native";
-import PostListItem from "@/components/PostListItem";
-import { useQuery } from "@tanstack/react-query";
-import { fetchPosts } from "@/services/posts";
-
+import { Text } from "react-native";
+import { View } from "react-native";
 export default function Community() {
-  const { data, isLoading, error, refetch, isRefetching } = useQuery({
-    queryKey: ["posts"],
-    queryFn: fetchPosts,
-  });
-
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     refetch();
-  //   }, [refetch])
-  // );
-
-  if (isLoading) {
-    return <ActivityIndicator />;
-  }
-
-  if (error) {
-    return <Text className="text-red-500">{error.message}</Text>;
-  }
-
   return (
-    <FlatList
-      data={data}
-      renderItem={({ item }) => <PostListItem post={item} />}
-      refreshControl={
-        <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
-      }
-    />
+    <View>
+      <Text className="text-white">Community</Text>
+    </View>
   );
 }
