@@ -12,7 +12,7 @@ import { useState } from "react";
 
 import { useAuth } from "@/providers/AuthProvider";
 
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { router } from "expo-router";
 import { createPost } from "@/services/posts";
 

@@ -13,16 +13,31 @@ export const getProfileById = async(id: string) => {
 }
 
 export const updateProfile = async (
-    id: string,
-    updatedProfile: TablesInsert<"profiles">
+  id: string,
+  updatedProfile: TablesInsert<"profiles">
 ) => {
-    const {data} = await supabase
-      .from("profiles")
-      .update(updatedProfile)
-      .eq("id",id)
-      .throwOnError()
-      .select("*")
-      .single();
+  const {data} = await supabase
+    .from("profiles")
+    .update(updatedProfile)
+    .eq("id",id)
+    .throwOnError()
+    .select("*")
+    .single();
 
-    return data;
+  return data;
+};
+
+export const createProfile = async (
+  id: string,
+  newProfile: TablesInsert<"profiles">
+) => {
+  const {data} = await supabase
+    .from("profiles")
+    .update(newProfile)
+    .eq("id",id)
+    .throwOnError()
+    .select("*")
+    .single();
+
+  return data;
 };

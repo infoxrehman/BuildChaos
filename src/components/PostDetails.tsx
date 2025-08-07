@@ -53,10 +53,10 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
         )}
 
         <View className="flex-row gap-4">
-          {/* <Pressable className="flex-row items-center">
+          <Pressable className="flex-row items-center">
             <Ionicons name="heart-outline" size={20} color="#d1d5db" />
             <Text className="text-gray-300 ml-2">0</Text>
-          </Pressable> */}
+          </Pressable>
 
           <Pressable className="flex-row items-center">
             <Ionicons

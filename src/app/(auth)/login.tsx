@@ -42,7 +42,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <View className="flex-1 items-center justify-center bg-neutral-900 px-6">
+    <View className="flex-1 items-center justify-center px-6">
       <View className="w-full max-w-sm">
         <Text className="text-3xl font-bold text-center mb-8 text-white">
           Welcome Back
@@ -89,6 +89,9 @@ export default function LoginScreen() {
             </Text>
           </TouchableOpacity>
 
+
+         
+
           <View className="flex-row justify-center mt-4">
             <Text className="text-gray-400">Don't have an account? </Text>
             <Link href="/signup" asChild>
@@ -96,7 +99,8 @@ export default function LoginScreen() {
                 <Text className="text-blue-400 font-medium">Create one</Text>
               </Pressable>
             </Link>
-          </View>
+          </View> 
+          
         </View>
       </View>
     </View>

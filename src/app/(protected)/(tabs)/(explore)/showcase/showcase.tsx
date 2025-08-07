@@ -1,47 +1,24 @@
 import { Link, router } from "expo-router";
 import {
   Pressable,
-  Text,
   TextInput,
   View,
+  RefreshControl,
   FlatList,
   Image,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+import { useQuery } from "@tanstack/react-query";
+import { fetchShowcase } from "@/services/showcase";
+import ShowcaseListItem from "@/components/ShowcaseListItem";
+
 export default function Showcase() {
-  const projects = [
-    {
-      id: "1",
-      title: "DevConnect",
-      description: "A Pair Programming Web App",
-      votes: 3,
-    },
-    {
-      id: "2",
-      title: "Ghar Ka Coder",
-      description: "Code, Connect, and Earn Rewards",
-      votes: 2,
-    },
-    {
-      id: "3",
-      title: "GHAIR KA CODER",
-      description: "A User Network Product ©",
-      votes: 1,
-    },
-    {
-      id: "3",
-      title: "GHAIR KA CODER",
-      description: "A User Network Product ©",
-      votes: 1,
-    },
-    {
-      id: "3",
-      title: "GHAIR KA CODER",
-      description: "A User Network Product ©",
-      votes: 1,
-    },
-  ];
+
+  const { data, refetch, isRefetching } = useQuery({
+    queryKey: ["showcase"],
+    queryFn: fetchShowcase,
+  });
 
   const imageUris = {
     banner:
@@ -69,29 +46,13 @@ export default function Showcase() {
       </View>
 
       <View className="flex-1">
-        <FlatList
-          data={projects}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={{ paddingBottom: 80 }}
-          renderItem={({ item }) => (
-            <Pressable className="flex-row bg-[#303030] rounded-xl p-4 mx-2 my-2 shadow-sm shadow-black/10">
-              <Image
-                source={{ uri: imageUris.banner }}
-                className="w-[96] h-[96] rounded-xl"
-              />
-
-              <View className="flex-1 m-3">
-                <Text className="font-bold text-lg text-white">
-                  {item.title}
-                </Text>
-                <Text className="text-white">{item.description}</Text>
-              </View>
-              <View className="w-10 h-10 rounded-full bg-gray-100 justify-center items-center mr-4">
-                <Text className="font-bold">{item.votes}</Text>
-              </View>
-            </Pressable>
-          )}
-        />
+      <FlatList
+      data={data}
+      renderItem={({ item }) => <ShowcaseListItem project={item} />}
+      refreshControl={
+        <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+      }
+    />
         <Pressable
           className="absolute bg-red-500 rounded-full p-4 right-4 bottom-4 shadow-lg shadow-black/30"
           style={{

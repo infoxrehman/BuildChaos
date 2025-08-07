@@ -205,6 +205,7 @@ export type Database = {
           id: string;
           title: string;
           description: string;
+          creator_id: string;
           creator_name: string | null;
           project_url: string | null;
           project_image: string | null;
@@ -215,6 +216,7 @@ export type Database = {
         };
         Insert: {
           id?: string;
+          creator_id: string;
           title: string;
           description: string;
           creator_name?: string | null;
@@ -227,6 +229,7 @@ export type Database = {
         };
         Update: {
           id?: never;
+          creator_id: string;
           title?: string;
           description?: string;
           creator_name?: string | null;

@@ -12,13 +12,8 @@ export default function Home() {
   const { data, isLoading, error, refetch, isRefetching } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
+    // refetchInterval: 5000,
   });
-
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     refetch();
-  //   }, [refetch])
-  // );
 
   if (isLoading) {
     return <ActivityIndicator />;
@@ -38,3 +33,8 @@ export default function Home() {
     />
   );
 }
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     refetch();
+  //   }, [refetch])
+  // );

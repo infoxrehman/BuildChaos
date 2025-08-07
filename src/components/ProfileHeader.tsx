@@ -5,6 +5,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { Link } from "expo-router";
 import SupabaseImage from "./SupabaseImage";
 import { supabase } from "@/lib/supabase";
+import { Feather } from "@expo/vector-icons";
 
 export default function ProfileHeader() {
   const { user } = useAuth();
@@ -24,6 +25,13 @@ export default function ProfileHeader() {
 
   return (
     <View className="p-4 gap-4">
+      <Pressable
+        className="ml-auto flex-row items-center rounded-lg bg-[#F25F33] p-3 px-4 w-30 mb-2"
+        onPress={() => supabase.auth.signOut()}
+      >
+        <Feather name="power" size={20} color="white" />
+        <Text className="text-lg font-bold text-white ml-2">Log off</Text>
+      </Pressable>
       <View className="flex-row items-center justify-between gap-2">
         <View className="gap-1">
           <Text className="text-white text-2xl font-bold">
@@ -47,17 +55,11 @@ export default function ProfileHeader() {
             <Text className="text-center text-neutral-200">Edit Profile</Text>
           </Pressable>
         </Link>
-
+{/* 
         <Pressable className="flex-1 py-2 rounded-lg border-2 border-neutral-800">
           <Text className="text-center text-neutral-200">Share Profile</Text>
-        </Pressable>
+        </Pressable> */}
       </View>
-      <Pressable
-        className=" items-center rounded-lg bg-red-400 p-3 px-8"
-        onPress={() => supabase.auth.signOut()}
-      >
-        <Text className="text-lg font-bold text-white">Log off</Text>
-      </Pressable>
     </View>
   );
 }

@@ -27,10 +27,10 @@ export default function Explore() {
       "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_community_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9jb21tdW5pdHlfbGlzdF9pY29uLnBuZyIsImlhdCI6MTc1MzgxNTY4NCwiZXhwIjoyMDY5MTc1Njg0fQ.BGgLWcwCg4BAX7vQjK4MxAGIpX5kUz-hrkK3ofSH_QU",
     showcase:
       "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_showcase_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9zaG93Y2FzZV9saXN0X2ljb24ucG5nIiwiaWF0IjoxNzUzODE2Mjc3LCJleHAiOjIwNjkxNzYyNzd9.K1ryACF1cn09qtNY6A8lPPDzxJbBAV-2n6yYZoiN7us",
-    hackathons:
-      "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_hackathon_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9oYWNrYXRob25fbGlzdF9pY29uLnBuZyIsImlhdCI6MTc1MzgxNjI5NywiZXhwIjoyMDY5MTc2Mjk3fQ.vr0jH-CSXrdp54t3q8Egjjo4KykGXJWmGEtQwV9C3uQ",
-    techEvents:
-      "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_tech_events_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV90ZWNoX2V2ZW50c19saXN0X2ljb24ucG5nIiwiaWF0IjoxNzUzODE2MzE3LCJleHAiOjIwNjkxNzYzMTd9.VLnuOzbHTCP3g70yubiastp2OwRauWsC6lOu5slgcvs",
+    // hackathons:
+    //   "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_hackathon_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9oYWNrYXRob25fbGlzdF9pY29uLnBuZyIsImlhdCI6MTc1MzgxNjI5NywiZXhwIjoyMDY5MTc2Mjk3fQ.vr0jH-CSXrdp54t3q8Egjjo4KykGXJWmGEtQwV9C3uQ",
+    // techEvents:
+    //   "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_tech_events_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV90ZWNoX2V2ZW50c19saXN0X2ljb24ucG5nIiwiaWF0IjoxNzUzODE2MzE3LCJleHAiOjIwNjkxNzYzMTd9.VLnuOzbHTCP3g70yubiastp2OwRauWsC6lOu5slgcvs",
   };
 
   return (
@@ -62,7 +62,7 @@ export default function Explore() {
           </View>
         </TouchableOpacity>
 
-        <View
+        {/* <View
           className="p-10 bg-[#AAB3FE] m-4 rounded-xl border-4 border-white"
           style={styles.cardContainer}
         >
@@ -70,9 +70,9 @@ export default function Explore() {
             <Text style={styles.menuText}>HACKATHONS</Text>
           </View>
           <Image source={{ uri: imageUris.hackathons }} style={styles.image} />
-        </View>
+        </View> */}
 
-        <View
+        {/* <View
           className="p-10 bg-[#E19108] m-4 rounded-xl border-4 border-white"
           style={styles.cardContainer}
         >
@@ -82,7 +82,7 @@ export default function Explore() {
             </Text>
           </View>
           <Image source={{ uri: imageUris.techEvents }} style={styles.image} />
-        </View>
+        </View> */}
       </View>
     </ScrollView>
   );

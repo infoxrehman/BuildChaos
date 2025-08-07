@@ -15,6 +15,10 @@ export default function AuthLayout() {
         name="signup"
         options={{ title: "Sign up", headerBackButtonDisplayMode: "minimal" }}
       />
+      <Stack.Screen
+      name="/completeprofile"
+      options={{ title: "Complete Profile", headerBackButtonDisplayMode: "minimal" }}
+    />
     </Stack>
   );
 }

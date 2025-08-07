@@ -3,10 +3,10 @@ import {TablesInsert} from "@/types/database.types";
 
 type ShowcaseInput = TablesInsert<"showcase">;
 
-export const fetchPosts = async () => {
+export const fetchShowcase = async () => {
   const { data } = await supabase
-    .from("posts")
-    .select("*, user:profiles(*), replies:posts(count)")
+    .from("showcase")
+    .select("*")
     .order('created_at', {ascending:false})
     .throwOnError();
 
