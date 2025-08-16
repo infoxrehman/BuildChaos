@@ -16,7 +16,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { router } from "expo-router";
 import { createPost } from "@/services/posts";
 
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 
 import * as ImagePicker from "expo-image-picker";
 import { supabase } from "@/lib/supabase";
@@ -92,11 +92,18 @@ export default function NewPost() {
         className="flex-1"
       >
         <View className="flex-row gap-4">
+          
+        {profile?.avatar_url ? (
           <SupabaseImage
             bucket="avatars"
             path={profile.avatar_url}
-            className="w-12 h-12 rounded-full"
-          />
+            className="w-12 h-12 rounded-full" transform={undefined}          />
+        ) : (
+          <View className="w-12 h-12 rounded-full bg-neutral-800 items-center justify-center">
+            <Feather name="user" size={18} color="#FFFFFF" />
+          </View>
+        )}
+
           <View>
             <Text className="text-white text-lg font-bold">
               ~{profile?.username}

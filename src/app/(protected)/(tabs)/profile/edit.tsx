@@ -7,7 +7,7 @@ import { router } from "expo-router";
 import UserAvatarPicker from "@/components/UserAvatarPicker";
 
 export default function ProfileEditScreen() {
-  const [fullName, setFullName] = useState("");
+  const [name, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
 
@@ -16,8 +16,6 @@ export default function ProfileEditScreen() {
 
   const {
     data: profile,
-    isLoading,
-    error,
   } = useQuery({
     queryKey: ["profile", user?.id],
     queryFn: () => getProfileById(user!.id),
@@ -26,7 +24,7 @@ export default function ProfileEditScreen() {
   const { mutate, isPending } = useMutation({
     mutationFn: () =>
       updateProfile(user!.id, {
-        full_name: fullName,
+        name: name,
         bio,
         avatar_url: avatarUrl,
       }),
@@ -37,7 +35,7 @@ export default function ProfileEditScreen() {
   });
 
   useEffect(() => {
-    setFullName(profile?.full_name ?? "");
+    setFullName(profile?.name ?? "");
     setBio(profile?.bio ?? "");
   }, [profile?.id]);
 
@@ -48,7 +46,7 @@ export default function ProfileEditScreen() {
         onUpload={setAvatarUrl}
       />
       <TextInput
-        value={fullName}
+        value={name}
         onChangeText={setFullName}
         placeholder="Full Name"
         className="text-white border-2 border-neutral-700 rounded-md p-4"

@@ -24,9 +24,9 @@ export default function Explore() {
 
   const imageUris = {
     community:
-      "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_community_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9jb21tdW5pdHlfbGlzdF9pY29uLnBuZyIsImlhdCI6MTc1MzgxNTY4NCwiZXhwIjoyMDY5MTc1Njg0fQ.BGgLWcwCg4BAX7vQjK4MxAGIpX5kUz-hrkK3ofSH_QU",
+      "https://xznrdoeeigklyaxdisqb.supabase.co/storage/v1/object/public/app%20images/explore_community_list_icon.png",
     showcase:
-      "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_showcase_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9zaG93Y2FzZV9saXN0X2ljb24ucG5nIiwiaWF0IjoxNzUzODE2Mjc3LCJleHAiOjIwNjkxNzYyNzd9.K1ryACF1cn09qtNY6A8lPPDzxJbBAV-2n6yYZoiN7us",
+      "https://xznrdoeeigklyaxdisqb.supabase.co/storage/v1/object/public/app%20images/explore_showcase_list_icon%20(1).png",
     // hackathons:
     //   "https://zexkzapypokjnrujwals.supabase.co/storage/v1/object/sign/images/explore_hackathon_list_icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zNzE4OWM3Zi1lNjllLTQ0NGYtYTExMy0xMTY2MTZiOWI4ZjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvZXhwbG9yZV9oYWNrYXRob25fbGlzdF9pY29uLnBuZyIsImlhdCI6MTc1MzgxNjI5NywiZXhwIjoyMDY5MTc2Mjk3fQ.vr0jH-CSXrdp54t3q8Egjjo4KykGXJWmGEtQwV9C3uQ",
     // techEvents:

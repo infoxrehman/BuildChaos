@@ -52,18 +52,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          headerShown: false,
-          tabBarIcon: ({ size, color }) => (
-            <Feather name="user" size={size} color={color} />
-          ),
-        }}
-      />
+      name="profile"
+      options={{
+        title: "Profile",
+        headerShown: false,
+        tabBarIcon: ({ size, color }) => (
+          <Feather name="user" size={size} color={color} />
+        ),
+      }}
+    />
     </Tabs>
   );
-}
-function useFonts(arg0: { Arcade: any }): [any] {
-  throw new Error("Function not implemented.");
 }

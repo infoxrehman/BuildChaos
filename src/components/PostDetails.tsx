@@ -1,5 +1,5 @@
 import { View, Text, Pressable, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Tables } from "@/types/database.types";
@@ -21,11 +21,22 @@ export default function PostDetails({ post }: { post: PostWithUser }) {
     <Link href={`/posts/${post.id}`} asChild>
       <Pressable className="p-4 border-b border-gray-800/70 gap-4">
         <View className="flex-1 flex-row items-center gap-3">
-          <SupabaseImage
+          {/* <SupabaseImage
             bucket="avatars"
             path={post.user.avatar_url}
             className="w-12 h-12 rounded-full"
-          />
+          /> */}
+
+        {post.user.avatar_url ? (
+          <SupabaseImage
+            bucket="avatars"
+            path={post.user.avatar_url}
+            className="w-12 h-12 rounded-full" transform={undefined}          />
+        ) : (
+          <View className="w-12 h-12 rounded-full bg-neutral-800 items-center justify-center">
+            <Feather name="user" size={18} color="#FFFFFF" />
+          </View>
+        )}
 
           <Text className="text-white font-bold mr-2">
             {post.user.username}

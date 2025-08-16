@@ -1,8 +1,8 @@
 import {
   ActivityIndicator,
   FlatList,
-  Text,
   RefreshControl,
+  Text,
 } from "react-native";
 import PostListItem from "@/components/PostListItem";
 import { useQuery } from "@tanstack/react-query";
@@ -21,9 +21,10 @@ export default function Home() {
   if (error) {
     return <Text className="text-red-500">{error.message}</Text>;
   }
+ 
 
   return (
-    <FlatList
+      <FlatList
       data={data}
       renderItem={({ item }) => <PostListItem post={item} />}
       refreshControl={

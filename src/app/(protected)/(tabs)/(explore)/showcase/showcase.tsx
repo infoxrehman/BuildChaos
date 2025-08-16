@@ -22,7 +22,7 @@ export default function Showcase() {
 
   const imageUris = {
     banner:
-      "https://nfxzczdhrcdiachkwyeh.supabase.co/storage/v1/object/sign/app-images/showcase.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NTdkMmNjYi0yOGQ0LTQ4OWMtODM5NS03MDI3YmVmNDA3MWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhcHAtaW1hZ2VzL3Nob3djYXNlLnBuZyIsImlhdCI6MTc1Mzg2Njg1NSwiZXhwIjoyMDY5MjI2ODU1fQ.uedtsThruMwRtBXVrRBlNQVhxdY89GH205PSkPQLQQI",
+      "https://xznrdoeeigklyaxdisqb.supabase.co/storage/v1/object/public/app%20images/showcase.png",
   };
 
   return (
@@ -54,13 +54,13 @@ export default function Showcase() {
       }
     />
         <Pressable
-          className="absolute bg-red-500 rounded-full p-4 right-4 bottom-4 shadow-lg shadow-black/30"
+          className="absolute bg-red-500 rounded-full p-4 right-4 bottom-4 shadow-lg shadow-black/30 mb-4"
           style={{
             elevation: 5,
           }}
         >
           <Link href="/(protected)/(tabs)/(explore)/showcase/create" asChild>
-            <Ionicons name="add-outline" size={32} color="white" />
+            <Ionicons name="add-outline" size={28}  color="white" />
           </Link>
         </Pressable>
       </View>

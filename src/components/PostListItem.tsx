@@ -1,5 +1,5 @@
 import { View, Text, Pressable, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Tables } from "@/types/database.types";
@@ -31,11 +31,16 @@ export default function PostListItem({
         }`}
       >
         <View className="mr-3 items-center gap-2">
+        {post.user.avatar_url ? (
           <SupabaseImage
             bucket="avatars"
             path={post.user.avatar_url}
-            className="w-12 h-12 rounded-full"
-          />
+            className="w-12 h-12 rounded-full" transform={undefined}          />
+        ) : (
+          <View className="w-12 h-12 rounded-full bg-neutral-800 items-center justify-center">
+            <Feather name="user" size={18} color="#FFFFFF" />
+          </View>
+        )}
 
           {!isLastInGroup && (
             <View className="w-[3px] flex-1 rounded-full bg-neutral-700 translate-y-2" />

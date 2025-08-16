@@ -40,11 +40,16 @@ export default function ProfileHeader() {
           <Text className="text-neutral-200 text-lg">~{profile?.username}</Text>
         </View>
 
-        <SupabaseImage
-          bucket="avatars"
-          path={profile.avatar_url}
-          className="w-24 h-24 rounded-full"
-        />
+        {profile?.avatar_url ? (
+          <SupabaseImage
+            bucket="avatars"
+            path={profile.avatar_url}
+            className="w-24 h-24 rounded-full" transform={undefined}          />
+        ) : (
+          <View className="w-24 h-24 rounded-full bg-neutral-800 items-center justify-center">
+            <Feather name="user" size={28} color="#FFFFFF" />
+          </View>
+        )}
       </View>
 
       <Text className="text-neutral-200 leading-snug">{profile?.bio}</Text>
