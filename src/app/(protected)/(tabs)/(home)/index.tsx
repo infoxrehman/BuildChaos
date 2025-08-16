@@ -12,7 +12,6 @@ export default function Home() {
   const { data, isLoading, error, refetch, isRefetching } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
-    // refetchInterval: 5000,
   });
 
   if (isLoading) {

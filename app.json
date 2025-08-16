@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "buildchaos",
-    "slug": "buildchaos",
-    "scheme": "buildchaos",
+    "name": "komunity",
+    "slug": "komunity",
+    "scheme": "komunity",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,7 +26,7 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.lixtanetwork.buildchaos"
+      "package": "com.lixtanetwork.komunity"
     },
     "web": {
       "favicon": "./assets/favicon.png"
